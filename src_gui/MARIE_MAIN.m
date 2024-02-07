@@ -839,6 +839,8 @@ if (Plot_on)
         
         if(COIL.type == 'W')
             
+            isPort=zeros(size(COIL.Pcoil,1));
+            isPort(COIL.port) = 1;
             for ii = 1:size(COIL.Pcoil,1)
                 
                 clear x; clear y; clear z;
@@ -848,7 +850,11 @@ if (Plot_on)
                 
                 hold on;
                 orange = [1 0.5 0.2];
-                plot3(x,y,z,'Color', orange, 'LineWidth', 3.0);
+                if isPort(ii)
+                    plot3(x,y,z,'Color', "red", 'LineWidth', 3.0);
+                else
+                    plot3(x,y,z,'Color', orange, 'LineWidth', 3.0);
+                end
                 xmin = min([xmin; x(:)]); xmax = max([xmax; x(:)]);
                 ymin = min([ymin; y(:)]); ymax = max([ymax; y(:)]);
                 zmin = min([zmin; z(:)]); zmax = max([zmax; z(:)]);

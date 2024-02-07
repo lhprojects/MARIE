@@ -136,7 +136,7 @@ if body % there is scatterer
                 
 
                 coup = 5; gpu_flag = 1;
-                factorized = 1; tolfactor = 1e-5; blockSize = 100;
+                factorized = 0; tolfactor = 1e-5; blockSize = 100;
                 % solve the system
                 [Zparam,Jcoil,Jbody] = VWIE_Solver(RHBM,COIL,ff,tol,coup,gpu_flag,factorized,tolfactor,blockSize);
 
